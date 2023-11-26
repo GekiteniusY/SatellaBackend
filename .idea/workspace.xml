@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e65a577c-1b4f-470a-bf23-cd10fd971b7d" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/controller/StoreController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/consumer/Consumer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/Store.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/StoreOperator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/repository/StoreRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/service/StoreService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/ValidationError.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/Store.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/Store.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -40,18 +36,21 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2Y7bE6o2Ui2tPRnbOqzOWcWYBiL" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "setup/create__directory",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="entity.store" />
