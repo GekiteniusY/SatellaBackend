@@ -1,7 +1,7 @@
-package jp.stella.entity.store
+package jp.stella.domain.store
 
 import arrow.core.*
-import jp.stella.ValidationError
+import jp.stella.uncategorizable.ValidationError
 
 
 /**
@@ -76,5 +76,8 @@ class StoreAddress private constructor(val value: String) {
     }
 }
 
-
+// TODO: インターフェースを利用した実装に修正する
+interface StoreNameInterface{
+    val value: String
+}
 
