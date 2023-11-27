@@ -11,15 +11,14 @@ import jp.stella.ValidationError
  *
  * @property storeId ストアID
  * @property storeName 店名
- * @property address 住所
+ * @property storeAddress 住所
  */
-data class Store(val storeId: String, val storeName: String,val storeAddress: String)
+data class Store(val storeId: StoreId, val storeName: StoreName,val storeAddress: StoreAddress)
 
 fun createStore(storeId: String, storeName: String, storeAddress: String): ValidatedNel<ValidationError, Store> {
-//    return StoreId.create(storeId).zip(StoreName.create(storeName)).zip(StoreAddress.create(storeAddress)){
-//        validatedStoreId, validatedStoreName, validatedStoreAddress -> Store(validatedStoreId, validatedStoreName, validatedStoreAddress)
-//    }
-    return TODO("実装途中")
+    return StoreId.create(storeId).zip(StoreName.create(storeName), StoreAddress.create(storeAddress)){
+        validatedStoreId, validatedStoreName, validatedStoreAddress -> Store(validatedStoreId, validatedStoreName, validatedStoreAddress)
+    }
 }
 
 class StoreId private constructor(val value: String){
@@ -30,12 +29,12 @@ class StoreId private constructor(val value: String){
          * @param storeId ストアID
          * @rerun 失敗：バリデーションエラー、成功：ストアIDオブジェクト
          */
-        fun create(storeId: String): Either<ValidationError, StoreId>{
+        fun create(storeId: String): ValidatedNel<ValidationError, StoreId>{
             // TODO: バリデーションを実装、コメントを修正
             if (storeId.isEmpty() || storeId.isBlank()){
-                return ValidationError("ストアIDが条件を満たしていません").left()
+                return ValidationError("ストアIDが条件を満たしていません").invalidNel()
             }
-            return StoreId(storeId).right()
+            return StoreId(storeId).valid()
         }
     }
 }
@@ -49,12 +48,12 @@ class StoreName private constructor(val value: String){
          * @param storeName ストア名
          * @return 失敗：バリデーションエラー、成功：ストア名オブジェクト
          */
-        fun create(storeName: String): Either<ValidationError, StoreName>{
+        fun create(storeName: String): ValidatedNel<ValidationError, StoreName>{
             // TODO: バリデーションを実装、コメントを修正
             if (storeName.isEmpty() || storeName.isBlank()){
-                return ValidationError("ストア名が条件を満たしていません").left()
+                return ValidationError("ストア名が条件を満たしていません").invalidNel()
             }
-            return StoreName(storeName).right()
+            return StoreName(storeName).valid()
         }
     }
 }
@@ -67,12 +66,12 @@ class StoreAddress private constructor(val value: String) {
          * @param storeAddress ストア住所
          * @return 失敗：バリデーションエラー、成功：ストア住所オブジェクト
          */
-        fun create(storeAddress: String): Either<ValidationError, StoreAddress> {
+        fun create(storeAddress: String): ValidatedNel<ValidationError, StoreAddress> {
             // TODO: バリデーションを実装、コメントを修正
             if (storeAddress.isEmpty() || storeAddress.isBlank()) {
-                return ValidationError("ストア住所が条件を満たしていません").left()
+                return ValidationError("ストア住所が条件を満たしていません").invalidNel()
             }
-            return StoreAddress(storeAddress).right()
+            return StoreAddress(storeAddress).valid()
         }
     }
 }
