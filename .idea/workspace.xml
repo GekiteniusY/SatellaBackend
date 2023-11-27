@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e65a577c-1b4f-470a-bf23-cd10fd971b7d" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/ValidationError.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/Store.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/jp/stella/entity/store/Store.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "setup/create__directory",
+    "git-widget-placeholder": "develop",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>

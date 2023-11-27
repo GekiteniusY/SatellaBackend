@@ -1,8 +1,6 @@
 package jp.stella.entity.store
 
-import arrow.core.Either
-import arrow.core.left
-import arrow.core.right
+import arrow.core.*
 import jp.stella.ValidationError
 
 
@@ -15,11 +13,14 @@ import jp.stella.ValidationError
  * @property storeName 店名
  * @property address 住所
  */
-data class Store(val storeId: String, val storeName: String,val address: String) {
+data class Store(val storeId: String, val storeName: String,val storeAddress: String)
 
+fun createStore(storeId: String, storeName: String, storeAddress: String): ValidatedNel<ValidationError, Store> {
+//    return StoreId.create(storeId).zip(StoreName.create(storeName)).zip(StoreAddress.create(storeAddress)){
+//        validatedStoreId, validatedStoreName, validatedStoreAddress -> Store(validatedStoreId, validatedStoreName, validatedStoreAddress)
+//    }
+    return TODO("実装途中")
 }
-
-
 
 class StoreId private constructor(val value: String){
     companion object {
