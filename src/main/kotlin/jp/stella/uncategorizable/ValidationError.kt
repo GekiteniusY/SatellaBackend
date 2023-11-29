@@ -6,11 +6,12 @@ package jp.stella.uncategorizable
  * 必ずエラーメッセージを記述する
  */
 
-//interface ValidationError{
-//    /**
-//     * エラーメッセージ
-//     */
-//    val errorMessage: String
-//}
+interface ValidationError{
+    /**
+     * エラーメッセージ
+     */
+    val errorMessage: String
+}
 
-data class ValidationError(val errorMessage: String)
+// TODO: ドメインオブジェクトをinterfaceを利用した実装に修正したら削除
+//data class ValidationError(val errorMessage: String)
