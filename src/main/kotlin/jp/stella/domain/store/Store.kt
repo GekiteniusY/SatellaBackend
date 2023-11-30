@@ -13,10 +13,62 @@ import jp.stella.uncategorizable.ValidationError
  * @property storeName 店名
  * @property storeAddress 住所
  */
-data class Store(val storeId: StoreId, val storeName: StoreName,val storeAddress: StoreAddress)
+//data class Store(val storeId: StoreId, val storeName: StoreName,val storeAddress: StoreAddress)
 
 
+interface StoreName {
+    /**
+     * StoreName の値
+     */
+    val param: String
 
+    // TODO: ストア名ルールを記述する
+    /**
+     * StoreName 生成時のドメインルールエラー
+     *
+     * ルール１：SomeRule1
+     * ルール２：SomeRule2
+     */
+    sealed interface CreationErrorStoreName: ValidationError{
+        /**
+         * 必須
+         *
+         * Null は許容しない
+         *
+         * @constructor Create empty Required
+         */
+        data object Required: CreationErrorStoreName{
+            override val errorMessage: String
+                get() = "StoreName は必須です"
+
+        }
+
+        data class InvalidFormat(val storeName: String): CreationErrorStoreName{
+            override val errorMessage: String
+                get() = "$storeName は条件を満たしていません。ストア名は✗✗である必要があります。"
+
+        }
+
+
+    }
+
+    private class ValidatedStoreName(override val param: String): StoreName
+
+    private class NotValidatedStoreName(override val param: String): StoreName
+
+    companion object{
+
+        fun newNotValidatedStoreName(storeName: String): ValidatedNel<CreationErrorStoreName, StoreName> = NotValidatedStoreName(storeName).validNel()
+
+        fun new(storeName: String?): ValidatedNel<CreationErrorStoreName, StoreName>{
+            if (storeName == null){
+                return CreationErrorStoreName.Required.invalidNel()
+            }
+            return ValidatedStoreName(storeName).validNel()
+        }
+    }
+
+}
 
 interface StoreAddress {
     /**
@@ -26,10 +78,10 @@ interface StoreAddress {
 
     // TODO: 住所ドメインのルールを記述する
     /**
-     * StoreAddress 生成時のドメインルール
+     * StoreAddress 生成時のドメインルールエラー
      *
-     * ルール１：
-     * ルール２：
+     * ルール１：SomeRule1
+     * ルール２：SomeRule2
      */
     sealed interface CreationErrorStoreAddress: ValidationError {
         /**
@@ -47,7 +99,7 @@ interface StoreAddress {
         data class InValidFormat(val storeAddress: String): CreationErrorStoreAddress {
             override val errorMessage: String
                 // TODO: 住所ドメインのルールを反映させる
-                get() = "StoreAddressは✗✗でなければいけません"
+                get() = "$storeAddress は条件を満たしていません。StoreAddressは✗✗でなければいけません"
         }
     }
 
