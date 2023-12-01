@@ -43,6 +43,9 @@ interface StoreName {
 
         }
 
+        /**
+         *
+         */
         data class InvalidFormat(val storeName: String): CreationErrorStoreName{
             override val errorMessage: String
                 get() = "$storeName は条件を満たしていません。ストア名は✗✗である必要があります。"
@@ -57,13 +60,32 @@ interface StoreName {
     private class NotValidatedStoreName(override val param: String): StoreName
 
     companion object{
+        // TODO: 住所入力時のフォーマットを正規表現で指定
+        // 現在入力されている値はサンプル
+        private const val FORMAT: String = "^[a-z0-9]{32}$"
 
         fun newNotValidatedStoreName(storeName: String): ValidatedNel<CreationErrorStoreName, StoreName> = NotValidatedStoreName(storeName).validNel()
 
         fun new(storeName: String?): ValidatedNel<CreationErrorStoreName, StoreName>{
+            /**
+             * nullチェック
+             *
+             * 空白だった場合は早期リターン
+             */
             if (storeName == null){
                 return CreationErrorStoreName.Required.invalidNel()
             }
+
+            /**
+             * FORMATチェック
+             *
+             * FORMATが適切でなかったら早期リターン
+             */
+            if (!storeName.matches(Regex(FORMAT))){
+                return CreationErrorStoreName.InvalidFormat(storeName).invalidNel()
+            }
+
+            // OK
             return ValidatedStoreName(storeName).validNel()
         }
     }
@@ -96,6 +118,13 @@ interface StoreAddress {
                 get() = "StoreAddress は必須です"
         }
 
+        /**
+         * フォーマット確認
+         *
+         * 指定されたFORMAT以外はだめ
+         *
+         * @property storeAddress
+         */
         data class InValidFormat(val storeAddress: String): CreationErrorStoreAddress {
             override val errorMessage: String
                 // TODO: 住所ドメインのルールを反映させる
