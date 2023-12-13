@@ -1,4 +1,4 @@
-package jp.stella.entity.consumer
+package jp.stella.domain.consumer
 
 /**
  * Web API で利用するデータモデル
